@@ -650,15 +650,16 @@ void FramesTest::TestJntArray()
     
     JntArray a3(4);
     CPPUNIT_ASSERT(Equal(a2,a3));
+
+    a1(0)=a1(0)*1e-7;
+    a1(1)=a1(1)*1e-7;
+    a1(2)=a1(2)*1e-7;
+    a1(3)=a1(3)*1e-7;
+    CPPUNIT_ASSERT(Equal(a1,a3,1));
     
     a1=a2;
     CPPUNIT_ASSERT(Equal(a1,a3));
 
-    random(a1(0));
-    random(a1(1));
-    random(a1(2));
-    random(a1(3));
-    
     Add(a1,a2,a3);
     CPPUNIT_ASSERT(Equal(a1,a3));
     
